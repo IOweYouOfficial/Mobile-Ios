@@ -3,11 +3,10 @@ import React, {useEffect, useState} from 'react';
 import {Platform} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import Feather from 'react-native-vector-icons/Feather';
 import ScanScreen from '../Screens/Scan/ScanScreen';
 import AccountScreen from '../Screens/Account/AccountScreen';
-import ProfileScreen from '../Screens/Profile/ProfileScreen';
 import ActivityScreen from '../Screens/Activity/ActivityScreen';
+import ProfileStackNavigation from './ProfileStackNavigation';
 
 const BottomTabNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -37,36 +36,36 @@ const BottomTabNavigation = () => {
           key="Home"
           component={ScanScreen}
           options={{
-            tabBarShowLabel: false,
+            tabBarShowLabel: true,
             // eslint-disable-next-line react/no-unstable-nested-components
-            tabBarIcon: ({size, color}) => (<Feather name={'home'} color={color} size={size} />),
+            // tabBarIcon: ({size, color}) => (<Feather name={"home"} color={color} size={size} />),
           }}/>
         <Tab.Screen
           name="Account"
           key="Account"
           component={AccountScreen}
           options={{
-            tabBarShowLabel: false,
+            tabBarShowLabel: true,
             // eslint-disable-next-line react/no-unstable-nested-components
-            tabBarIcon: ({size, color}) => (<Feather name={'home'} color={color} size={size} />),
+            // tabBarIcon: ({size, color}) => (<Feather name={"home"} color={color} size={size} />),
           }}/>
         <Tab.Screen
           name="Activity"
           key="Activity"
           component={ActivityScreen}
           options={{
-            tabBarShowLabel: false,
+            tabBarShowLabel: true,
             // eslint-disable-next-line react/no-unstable-nested-components
-            tabBarIcon: ({size, color}) => (<Feather name={'home'} color={color} size={size} />),
+            // tabBarIcon: ({size, color}) => (<Feather name={"home"} color={color} size={size} />),
           }}/>
         <Tab.Screen
           name="Profile"
           key="Profile"
-          component={ProfileScreen}
+          component={ProfileStackNavigation}
           options={{
-            tabBarShowLabel: false,
+            tabBarShowLabel: true,
             // eslint-disable-next-line react/no-unstable-nested-components
-            tabBarIcon: ({size, color}) => (<Feather name={'home'} color={color} size={size} />),
+            // tabBarIcon: ({size, color}) => (<Feather name={"home"} color={color} size={size} />),
           }}/>
       </Tab.Navigator>
     );
@@ -82,7 +81,7 @@ const BottomTabNavigation = () => {
           options={{
             tabBarShowLabel: false,
             // eslint-disable-next-line react/no-unstable-nested-components
-            tabBarIcon: ({size, color}) => (<Feather name={'home'} color={color} size={size} />),
+            tabBarIcon: ({size, color}) => (<Feather name={"home"} color={color} size={size} />),
           }}/>
         <Tab.Screen
           name="Account"
@@ -91,7 +90,7 @@ const BottomTabNavigation = () => {
           options={{
             tabBarShowLabel: false,
             // eslint-disable-next-line react/no-unstable-nested-components
-            tabBarIcon: ({size, color}) => (<Feather name={'home'} color={color} size={size} />),
+            tabBarIcon: ({size, color}) => (<Feather name={"home"} color={color} size={size} />),
           }}/>
         <Tab.Screen
           name="Activity"
@@ -100,16 +99,16 @@ const BottomTabNavigation = () => {
           options={{
             tabBarShowLabel: false,
             // eslint-disable-next-line react/no-unstable-nested-components
-            tabBarIcon: ({size, color}) => (<Feather name={'home'} color={color} size={size} />),
+            tabBarIcon: ({size, color}) => (<Feather name={"home"} color={color} size={size} />),
           }}/>
         <Tab.Screen
           name="Profile"
           key="Profile"
-          component={ProfileScreen}
+          component={ProfileStackNavigation}
           options={{
             tabBarShowLabel: false,
             // eslint-disable-next-line react/no-unstable-nested-components
-            tabBarIcon: ({size, color}) => (<Feather name={'home'} color={color} size={size} />),
+            tabBarIcon: ({size, color}) => (<Feather name={"home"} color={color} size={size} />),
           }}/>
       </Tab.Navigator>
     );

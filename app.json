@@ -1,4 +1,32 @@
 {
-  "name": "Mobile",
-  "displayName": "Mobile"
+  "expo": {
+    "name": "IOweYou",
+    "slug": "IOweYou",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/AdaptiveIconRippe.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/SpashScreenRippe.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.rippeapp.com",
+      "buildNumber": "1"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/AdaptiveIconRippe.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/AdaptiveIconRippe.png"
+    }
+  }
 }

@@ -1,11 +1,14 @@
 import React from 'react';
 import {StyleSheet, SafeAreaView} from 'react-native';
 import BottomTabNavigation from './src/Navigation/BottomTabNavigation';
+import {UserContextProvider} from './src/Context/UserContext';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <BottomTabNavigation />
+      <UserContextProvider>
+        <BottomTabNavigation />
+      </UserContextProvider>
     </SafeAreaView>
   );
 };
