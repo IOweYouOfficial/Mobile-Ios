@@ -7,27 +7,27 @@ import React, {
 } from 'react';
 
 interface UserContextType {
-  loginUsername: string | null;
+  loginUsername: string;
   setLoginUsername: Dispatch<SetStateAction<string>>;
-  loginPassword: string | null;
+  loginPassword: string;
   setLoginPassword: Dispatch<SetStateAction<string>>;
-  profileFirstName: string | null;
+  profileFirstName: string;
   setProfileFirstName: Dispatch<SetStateAction<string>>;
-  profileLastName: string | null;
+  profileLastName: string;
   setProfileLastName: Dispatch<SetStateAction<string>>;
-  profileUsername: string | null;
+  profileUsername: string;
   setProfileUsername: Dispatch<SetStateAction<string>>;
-  profileEmail: string | null;
+  profileEmail: string;
   setProfileEmail: Dispatch<SetStateAction<string>>;
-  profilePassword: string | null;
+  profilePassword: string;
   setProfilePassword: Dispatch<SetStateAction<string>>;
-  profileVerify: string | null;
+  profileVerify: string;
   setProfileVerify: Dispatch<SetStateAction<string>>;
-  profilePhone: string | null;
+  profilePhone: string;
   setProfilePhone: Dispatch<SetStateAction<string>>;
-  profileLocation: string | null;
+  profileLocation: string;
   setProfileLocation: Dispatch<SetStateAction<string>>;
-  profilePicture: string | null;
+  profilePicture: string;
   setProfilePicture: Dispatch<SetStateAction<string>>;
 }
 

@@ -4,26 +4,35 @@ import InputWithIconFeatherComponent from '../../../Components/GeneralComponents
 import {useNavigation} from '@react-navigation/native';
 import {UserContext} from '../../../Context/UserContext';
 
-const ProfilePhoneScreen = () => {
+const ProfileNameScreen = () => {
   const navigation = useNavigation();
 
-  const {ProfilePhone, setProfilePhone} = useContext(UserContext);
+  const {profileFirstName, setProfileFirstName} = useContext(UserContext);
+  const {profileLastName, setProfileLastName} = useContext(UserContext);
 
   return (
     <View>
-      <Text>Phone Screen</Text>
+      <Text>Profile Name Screen</Text>
       <InputWithIconFeatherComponent
-        label={'Phone'}
-        iconName={'phone'}
-        setValue={ProfilePhone}
-        updateValue={setProfilePhone}
-        placeholder={'123-456-7890'}
+        label={'First Name'}
+        iconName={'user'}
+        setValue={profileFirstName}
+        updateValue={setProfileFirstName}
+        placeholder={'John'}
+        secure={false}
+      />
+      <InputWithIconFeatherComponent
+        label={'Last Name'}
+        iconName={'user'}
+        setValue={profileLastName}
+        updateValue={setProfileLastName}
+        placeholder={'Doe'}
         secure={false}
       />
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('ProfileLocationScreen');
+            navigation.navigate('ProfilePhoneScreen');
           }}>
           <Text>Next</Text>
         </TouchableOpacity>
@@ -40,4 +49,4 @@ const ProfilePhoneScreen = () => {
   );
 };
 
-export default ProfilePhoneScreen;
+export default ProfileNameScreen;
