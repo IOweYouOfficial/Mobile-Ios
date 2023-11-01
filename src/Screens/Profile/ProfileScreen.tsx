@@ -1,14 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {auth, db, grabProfile} from '../../Utils/Firebase';
-import {
-  collection,
-  onSnapshot,
-  query,
-  where,
-  DocumentData,
-} from 'firebase/firestore';
+import {auth, grabProfile} from '../../Utils/Firebase';
 import {signOut} from 'firebase/auth';
 
 const ProfileScreen = () => {
@@ -17,6 +10,7 @@ const ProfileScreen = () => {
   const [profile, setProfile] = useState({});
 
   useEffect(() => {
+    console.log(auth.currentUser)
     if (auth.currentUser === null) {
       goToLogin();
     } else {
@@ -29,19 +23,19 @@ const ProfileScreen = () => {
       return auth.currentUser === null
         ? navigation.navigate('LoginProfileScreen')
         : getCurrentProfile();
-    })
-    return unsubscribe
-  }, [navigation])
+    });
+    return unsubscribe;
+  }, [navigation]);
 
   const getCurrentProfile = () => {
     grabProfile(auth.currentUser.uid)
       .then(profile => {
-        setProfile(profile)
+        setProfile(profile);
       })
       .catch(error => {
-        console.error(error)
-      })
-  }
+        console.error(error);
+      });
+  };
 
   const goToLogin = (): void => {
     const newLocal = 'LoginProfileScreen';

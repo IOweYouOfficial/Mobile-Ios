@@ -32,9 +32,6 @@ const auth = initializeAuth(firebaseApp, {
 const storage = getStorage(firebaseApp);
 
 const uploadNewImage = (uri: string, name: string): Promise<string | null> => {
-  console.log(uri);
-  console.log(name);
-
   return fetch(uri)
     .then(fetchImage => fetchImage.blob())
     .then(currentBlob => {
@@ -48,7 +45,6 @@ const uploadNewImage = (uri: string, name: string): Promise<string | null> => {
           snapshot => {
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log('Upload is ' + progress + '% done');
           },
           error => {
             console.error(error);
@@ -76,19 +72,16 @@ const uploadNewImage = (uri: string, name: string): Promise<string | null> => {
 
 const grabProfile = (userId: string) => {
   const collectionRef = collection(db, 'Profiles');
-  const q = query(
-    collectionRef,
-    where('userId', '==', auth.currentUser?.uid),
-  );
+  const q = query(collectionRef, where('userId', '==', userId));
 
   return new Promise((resolve, reject) => {
     onSnapshot(q, snapshot => {
       const profiles = [];
       snapshot.docs.forEach(doc => {
         const data = doc.data() as DocumentData;
-        profiles.push({ ...data, id: doc.id });
+        profiles.push({...data, id: doc.id});
       });
-
+      console.log(profiles.length);
       if (profiles.length > 0) {
         resolve(profiles[0]);
       } else {
@@ -98,4 +91,33 @@ const grabProfile = (userId: string) => {
   });
 };
 
-export {db, auth, firebaseApp, storage, uploadNewImage, grabProfile};
+const checkForValidUsername = (username: string): Promise<boolean | null> => {
+  const collectionRef = collection(db, 'Profiles');
+  const q = query(collectionRef, where('username', '==', username));
+
+  return new Promise((resolve, reject) => {
+    onSnapshot(q, snapshot => {
+      const profiles = [];
+      snapshot.docs.forEach(doc => {
+        const data = doc.data() as DocumentData;
+        profiles.push({...data, id: doc.id});
+      });
+
+      if (profiles.length > 0) {
+        resolve(false); // if there is profile, it will return false
+      } else {
+        resolve(true); // if there is no profile, it will return true
+      }
+    });
+  });
+};
+
+export {
+  db,
+  auth,
+  firebaseApp,
+  storage,
+  uploadNewImage,
+  grabProfile,
+  checkForValidUsername,
+};

@@ -13,6 +13,8 @@ const LoginScreen: React.FC = () => {
   const {loginPassword, setLoginPassword} = useContext(UserContext);
 
   const loginUser = (): void => {
+    console.log(loginUsername);
+    console.log(loginPassword);
     signInWithEmailAndPassword(auth, loginUsername, loginPassword)
       .then(credentials => {
         console.log(credentials);
