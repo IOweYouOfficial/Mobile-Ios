@@ -3,10 +3,10 @@ import React, {useEffect, useState} from 'react';
 import {Platform} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import ScanScreen from '../Screens/Scan/ScanScreen';
 import AccountScreen from '../Screens/Account/AccountScreen';
 import ActivityScreen from '../Screens/Activity/ActivityScreen';
 import ProfileStackNavigation from './ProfileStackNavigation';
+import HomeStackNavigation from './HomeStackNavigation';
 
 const BottomTabNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -34,7 +34,7 @@ const BottomTabNavigation = () => {
         <Tab.Screen
           name="Home"
           key="Home"
-          component={ScanScreen}
+          component={HomeStackNavigation}
           options={{
             tabBarShowLabel: true,
             // eslint-disable-next-line react/no-unstable-nested-components

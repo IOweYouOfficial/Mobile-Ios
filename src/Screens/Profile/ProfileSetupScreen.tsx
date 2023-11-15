@@ -6,8 +6,8 @@ import {UserContext} from '../../Context/UserContext';
 
 import * as ImagePicker from 'expo-image-picker';
 import * as ImageManipulator from 'expo-image-manipulator';
-import { auth, db, uploadNewImage } from '../../Utils/Firebase';
-import { addDoc, collection } from 'firebase/firestore';
+import {auth, db, uploadNewImage} from '../../Utils/Firebase';
+import {addDoc, collection} from 'firebase/firestore';
 
 const ProfileSetupScreen = () => {
   const navigation = useNavigation();
